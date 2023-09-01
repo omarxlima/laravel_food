@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="card" style="width: 50%">
-
+      
 
         <div class="card-body" >
             <ul>
@@ -25,6 +25,12 @@
                     <strong>Descrição: </strong> {{$plano->descricao}}
                 </li>
             </ul>
+
+            <form action="{{ route('planos.destroy', $plano->url) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                    <button class="btn btn-danger">Excluir</button>
+            </form>
         </div>
     </div>
 @stop

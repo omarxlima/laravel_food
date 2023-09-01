@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Plano')
+@section('title', 'Editar Plano')
 
 @section('content_header')
-    <h1>Cadastrar Plano</h1>
+    <h1>Editar Plano</h1>
 @stop
 
 @section('content')
@@ -11,13 +11,14 @@
 
 
         <div class="card-body" >
-            <form action=" {{route('planos.store')}} " method="POST">
+            <form action=" {{ route('planos.update', $plano->url) }} " method="POST">
                 @csrf
-                
-                @include('admin.planos._partials.form')
+                @method('PUT')
+
+               @include('admin.planos._partials.form')
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-dark">Cadastrar</button>
+                    <button type="submit" class="btn btn-dark">Editar</button>
                 </div>
 
             </form>

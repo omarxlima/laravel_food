@@ -17,4 +17,13 @@ class Plano extends Model
         'preco',
         'descricao'
     ];
+
+    public function pesquisa($filtro = null)
+     {
+        $resultado = $this
+                    ->where('nome', 'LIKE', "%$filtro%")
+                    ->orWhere('descricao', 'LIKE', "%$filtro%")
+                    ->paginate();
+        return $resultado;
+    }
 }
