@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Str;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdatePlanoRequest;
@@ -35,9 +34,7 @@ class PlanoController extends Controller
      */
     public function store(StoreUpdatePlanoRequest $request)
     {
-        $data = $request->all();
-        $data['url'] = Str::slug($request->nome);
-         $this->model->create($data);
+         $this->model->create($request->all());
 
         return redirect()->route('planos.index');
     }

@@ -18,6 +18,11 @@ class Plano extends Model
         'descricao'
     ];
 
+    public function detalhes()
+    {
+        return $this->hasMany(PlanoDetalhe::class);
+    }
+
     public function pesquisa($filtro = null)
      {
         $resultado = $this
@@ -26,4 +31,6 @@ class Plano extends Model
                     ->paginate();
         return $resultado;
     }
+
+
 }

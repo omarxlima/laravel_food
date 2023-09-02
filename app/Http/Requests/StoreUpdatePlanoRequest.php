@@ -25,7 +25,7 @@ class StoreUpdatePlanoRequest extends FormRequest
         return [
             'nome' => "required|min:3|max:190|unique:planos,nome,{$url},url",
             'preco' => 'required|numeric|min:3|max:190',
-            'descricao' => 'nullable|min:3|max:255',
+            'descricao' => 'nullable|min:3|max:255', 
 
         ];
     }
