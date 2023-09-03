@@ -3,63 +3,102 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePlanoDetalhe;
+use App\Models\Plano;
+use App\Models\PlanoDetalhe;
 use Illuminate\Http\Request;
 
 class PlanoDetalheController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    private $model, $plano;
+
+    public function __construct(PlanoDetalhe $detalhe, Plano $plano)
     {
-        //
+        $this->model = $detalhe;
+        $this->plano = $plano;
+    }
+    public function index($urlPlano)
+    {
+        if (!$plano = $this->plano->where('url', $urlPlano)->first()) {
+            return redirect()->back();
+        }
+        $detalhes = $plano->detalhes()->paginate();
+        return view('admin.planos.detalhes.index', compact('plano', 'detalhes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+
+    public function create($urlPlano)
     {
-        //
+        if (!$plano = $this->plano->where('url', $urlPlano)->first()) {
+            return redirect()->back();
+        }
+        return view('admin.planos.detalhes.create', compact('plano'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+
+    public function store(StoreUpdatePlanoDetalhe $request, $urlPlano)
     {
-        //
+        if (!$plano = $this->plano->where('url', $urlPlano)->first()) {
+            return redirect()->back();
+        }
+
+        $plano->detalhes()->create($request->all());
+
+        return redirect()->route('detalhes.index', $plano->url);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+
+    public function show(string $urlPlano, string $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url', $urlPlano)->first();
+        $detalhe = $this->model->find($idDetalhe);
+
+        if (!$plano || !$detalhe) {
+            return redirect()->back();
+        }
+
+        return view('admin.planos.detalhes.show', compact('plano', 'detalhe'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+
+    public function edit(string $urlPlano, string $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url', $urlPlano)->first();
+        $detalhe = $this->model->find($idDetalhe);
+
+        if (!$plano || !$detalhe) {
+            return redirect()->back();
+        }
+
+        return view('admin.planos.detalhes.edit', compact('plano', 'detalhe'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function update(StoreUpdatePlanoDetalhe $request, string $urlPlano, $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url', $urlPlano)->first();
+        $detalhe = $this->model->find($idDetalhe);
+
+        if (!$plano || !$detalhe) {
+            return redirect()->back();
+        }
+        $detalhe->update($request->all());
+        return redirect()->route('detalhes.index', $plano->url);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+
+    public function destroy(string $urlPlano, string $idDetalhe)
     {
-        //
+        $plano = $this->plano->where('url', $urlPlano)->first();
+        $detalhe = $this->model->find($idDetalhe);
+
+        if (!$plano || !$detalhe) {
+            return redirect()->back();
+        }
+        $detalhe->delete();
+        return redirect()
+                ->route('detalhes.index', $plano->url)
+                ->with('message', 'Registro excluido com sucesso!');
+
     }
 }

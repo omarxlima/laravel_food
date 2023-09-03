@@ -3,10 +3,18 @@
 @section('title', 'Planos')
 
 @section('content_header')
+<nav aria-label="breadcrumb">
+  <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="{{ route('planos.index') }}" class="active">Planos</a></li>
+      <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="{{ route('planos.index') }}">Planos</li>
     </ol>
+  </nav>
+    {{-- <ol class="breadcrumb">
+        <li class="breadcrumb-item"></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="">Planos</a></li>
+
+    </ol> --}}
     <h1>
         Planos
 
@@ -28,6 +36,8 @@
             </form>
         </div>
         <div class="card-body">
+            @include('admin.includes.alerts')
+
             <table class="table table-hover">
                 <thead>
                     <tr>
@@ -41,8 +51,9 @@
                         <tr>
                             <td>{{ $plano->nome }}</td>
                             <td>R$ {{ number_format($plano->preco, 2, ',', '.') }}</td>
-                            <td style="width: 150px">
+                            <td style="width: 350px">
 
+                                <a class="btn btn-dark" href="{{ route('detalhes.index', $plano->url) }}"><i class="fa-solid fa-eye"> Detalhes</i></a>
                                 <a class="btn btn-primary" href="{{ route('planos.show', $plano->url) }}"><i class="fa-solid fa-eye"></i></a>
                                 <a class="btn btn-warning" href="{{ route('planos.edit', $plano->url) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 

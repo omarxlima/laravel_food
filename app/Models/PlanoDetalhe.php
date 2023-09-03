@@ -11,6 +11,8 @@ class PlanoDetalhe extends Model
 
     protected $table = 'plano_detalhes';
 
+    protected $fillable = ['nome'];
+
     public function plano()
     {
         return $this->belongsTo(Plano::class);

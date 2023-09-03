@@ -13,8 +13,14 @@ return new class extends Migration
     {
         Schema::create('plano_detalhes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('plano_id');
             $table->string('nome');
             $table->timestamps();
+
+            $table->foreign('plano_id')
+                            ->references('id')
+                            ->on('planos')
+                            ->onDelete('cascade');
         });
     }
 

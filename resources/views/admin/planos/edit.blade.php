@@ -4,9 +4,18 @@
 
 @section('content_header')
     <h1>Editar Plano</h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('planos.index') }}">Planos</a></li>
+            <li class="breadcrumb-item active" aria-current="{{ route('planos.edit', $plano->url) }}">{{ $plano->nome }}</li>
+        </ol>
+    </nav>
 @stop
 
 @section('content')
+
     <div class="card" style="width: 50%">
 
 

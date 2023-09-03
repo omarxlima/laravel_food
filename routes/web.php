@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\PlanoController;
+use App\Http\Controllers\Admin\{
+    PlanoController,
+    PlanoDetalheController
+};
 use Illuminate\Support\Facades\Route;
-
 
 
 Route::prefix('admin')->group(function () {
@@ -10,7 +12,7 @@ Route::prefix('admin')->group(function () {
     /***
     *   Route Detalhes dos Planos
     */
-    Route::resource('planos/{ur}', PlanoController::class);
+    Route::resource('planos/{url}/detalhes', PlanoDetalheController::class);
 
     /***
      * Route Planos

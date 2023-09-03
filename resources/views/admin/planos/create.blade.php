@@ -4,16 +4,25 @@
 
 @section('content_header')
     <h1>Cadastrar Plano</h1>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('planos.index') }}">Planos</a></li>
+            <li class="breadcrumb-item active" aria-current="{{ route('planos.create') }}">Novo</li>
+        </ol>
+    </nav>
 @stop
 
 @section('content')
+
     <div class="card" style="width: 50%">
 
 
-        <div class="card-body" >
-            <form action=" {{route('planos.store')}} " method="POST">
+        <div class="card-body">
+            <form action=" {{ route('planos.store') }} " method="POST">
                 @csrf
-                
+
                 @include('admin.planos._partials.form')
 
                 <div class="form-group">
@@ -30,5 +39,7 @@
 @stop
 
 @section('js')
-    <script> console.log('Hi!'); </script>
+    <script>
+        console.log('Hi!');
+    </script>
 @stop
