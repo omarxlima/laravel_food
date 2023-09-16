@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\{
+    PerfilController,
     PlanoController,
     PlanoDetalheController
 };
@@ -8,6 +9,11 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('admin')->group(function () {
+
+       /***
+     * Route Perfis
+    */
+    Route::resource('perfis', PerfilController::class);
 
     /***
     *   Route Detalhes dos Planos

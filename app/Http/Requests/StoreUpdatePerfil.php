@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreUpdatePlanoRequest extends FormRequest
+class StoreUpdatePerfil extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,11 +21,11 @@ class StoreUpdatePlanoRequest extends FormRequest
      */
     public function rules(): array
     {
-        // $url = $this->segment(3);
+        $id = $this->segment(3);
         return [
-            'nome' => "required|min:3|max:190|unique:perfis",
+            'nome' => "required|min:3|max:190|unique:perfis,nome,{$id},id",
+            'preco' => 'required|numeric|min:3|max:190',
             'descricao' => 'nullable|min:3|max:255',
-
         ];
     }
 }

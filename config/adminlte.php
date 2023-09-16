@@ -309,7 +309,13 @@ return [
         [
             'text' => 'Planos',
             'url'  => 'admin/planos',
-            // 'can'  => 'manage-blog',
+            'icon' => 'fa-solid fa-rocket'
+        ],
+
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/perfis',
+            'icon' => 'fas fa-fw fa-user',
         ],
         // [
         //     'text'        => 'pages',
