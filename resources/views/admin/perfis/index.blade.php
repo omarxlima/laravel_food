@@ -28,12 +28,12 @@
     <div class="card">
         <div class="card-header">
 
-            {{-- <form action="{{ route('perfis.pesquisa') }}" method="post" class="form form-inline">
+            <form action="{{ route('perfis.pesquisa') }}" method="post" class="form form-inline">
                 @csrf
                 <input type="text" name="filtro" class="form-control" placeholder="Nome"
                     value="{{ $filtros['filtro'] ?? '' }}">
                 <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form> --}}
+            </form>
         </div>
         <div class="card-body">
             @include('admin.includes.alerts')

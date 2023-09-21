@@ -24,7 +24,6 @@ class StoreUpdatePerfil extends FormRequest
         $id = $this->segment(3);
         return [
             'nome' => "required|min:3|max:190|unique:perfis,nome,{$id},id",
-            'preco' => 'required|numeric|min:3|max:190',
             'descricao' => 'nullable|min:3|max:255',
         ];
     }

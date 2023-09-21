@@ -13,6 +13,7 @@ Route::prefix('admin')->group(function () {
        /***
      * Route Perfis
     */
+    Route::any('perfis/pesquisa', [PerfilController::class, 'pesquisa'])->name('perfis.pesquisa');
     Route::resource('perfis', PerfilController::class);
 
     /***

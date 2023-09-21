@@ -83,6 +83,30 @@ class PerfilController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $perfil = $this->model->find($id);
+        if (!$perfil){
+            return redirect()->back();
+        }
+        $perfil->delete();
+        return redirect()->route('perfis.index');
+
+    }
+
+      /**
+     * pesquisa.
+     */
+    public function pesquisa(Request $request)
+    {
+        $filtros = $request->only('filtro');
+        $perfis = $this->model
+                        ->where(function($query) use ($request) {
+                                if($request->filter) {
+                                    $query->where('nome', $request->filtro);
+                                    $query->orwhere('descricao', 'LIKE' ,"%{$request->filtro}%");
+                                }
+
+                        })->paginate();
+
+        return view('admin.perfis.index', compact('perfis', 'filtros'));
     }
 }
