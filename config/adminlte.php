@@ -317,6 +317,12 @@ return [
             'url'  => 'admin/perfis',
             'icon' => 'fas fa-fw fa-user',
         ],
+
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissoes',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         // [
         //     'text'        => 'pages',
         //     'url'         => 'admin/pages',

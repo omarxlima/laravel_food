@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\{
     PerfilController,
+    PermissaoController,
     PlanoController,
     PlanoDetalheController
 };
@@ -10,7 +11,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
 
-       /***
+     /***
+     * Route Permissoes
+    */
+    Route::any('permissoes/pesquisa', [PermissaoController::class, 'pesquisa'])->name('permissoes.pesquisa');
+    Route::resource('permissoes', PermissaoController::class);
+
+    /***
      * Route Perfis
     */
     Route::any('perfis/pesquisa', [PerfilController::class, 'pesquisa'])->name('perfis.pesquisa');
