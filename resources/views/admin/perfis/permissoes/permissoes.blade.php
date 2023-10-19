@@ -7,18 +7,18 @@
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="{{ route('perfis.index') }}">Perfis</li>
+      <li class="breadcrumb-item active" aria-current="{{ route('permissoes.index') }}">permissoes</li>
     </ol>
   </nav>
     {{-- <ol class="breadcrumb">
         <li class="breadcrumb-item"></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="">perfis</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="">permissoes</a></li>
 
     </ol> --}}
     <h1>
-        Permissões do Perfil
+        permissoes do Perfil {{ $perfil->nome}}
 
-        <a class="btn btn-dark" href="{{ route('perfis.create') }}"> Add Nova Permissão<i class="fa-solid fa-plus"></i></i></a>
+        <a class="btn btn-dark" href="{{ route('permissoes.create') }}"> Add <i class="fa-solid fa-plus"></i></i></a>
 
     </h1>
 
@@ -28,7 +28,7 @@
     <div class="card">
         <div class="card-header">
 
-            <form action="{{ route('perfis.pesquisa') }}" method="post" class="form form-inline">
+            <form action="{{ route('permissoes.pesquisa') }}" method="post" class="form form-inline">
                 @csrf
                 <input type="text" name="filtro" class="form-control" placeholder="Nome"
                     value="{{ $filtros['filtro'] ?? '' }}">
@@ -55,15 +55,15 @@
                             <td style="width: 350px">
 
                                 {{-- <a class="btn btn-dark" href="{{ route('detalhes.index', $permissao->id) }}"><i class="fa-solid fa-eye"> Detalhes</i></a> --}}
-                                <a class="btn btn-warning" href="{{ route('perfis.edit', $permissao->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-
+                                <a class="btn btn-primary" href="{{ route('permissoes.show', $permissao->id) }}"><i class="fa-solid fa-eye"></i></a>
+                                <a class="btn btn-warning" href="{{ route('permissoes.edit', $permissao->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
 
                             </td>
 
                         </tr>
 
                     @empty
-                        <p>Nenhum perfi cadastrado!</p>
+                        <p>Nenhuma permissão cadastrada!</p>
                     @endforelse
 
                 </tbody>

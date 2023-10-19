@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Perfis')
+@section('title', 'Permissoes do Perfil' )
 
 @section('content_header')
 <nav aria-label="breadcrumb">
@@ -16,9 +16,9 @@
 
     </ol> --}}
     <h1>
-        perfis
+        Permissões do Perfil
 
-        <a class="btn btn-dark" href="{{ route('perfis.create') }}"> Add <i class="fa-solid fa-plus"></i></i></a>
+        <a class="btn btn-dark" href="{{ route('perfis.create') }}"> Add Nova Permissão<i class="fa-solid fa-plus"></i></i></a>
 
     </h1>
 
@@ -55,8 +55,10 @@
                             <td style="width: 350px">
 
                                 {{-- <a class="btn btn-dark" href="{{ route('detalhes.index', $perfil->id) }}"><i class="fa-solid fa-eye"> Detalhes</i></a> --}}
-                                <a class="btn btn-primary" href="{{ route('perfis.show', $perfil->id) }}"><i class="fa-solid fa-eye"></i></a>
                                 <a class="btn btn-warning" href="{{ route('perfis.edit', $perfil->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-warning" href="{{ route('perfis.show', $perfil->id) }}">view</i></a>
+                                <a class="btn btn-warning" href="{{ route('perfis.permissoes', $perfil->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+
 
                             </td>
 

@@ -1,15 +1,24 @@
 <?php
 
 use App\Http\Controllers\Admin\{
-    PerfilController,
-    PermissaoController,
+
     PlanoController,
     PlanoDetalheController
+};
+use App\Http\Controllers\Admin\ACL\{
+    PermissaoPerfilController,
+    PerfilController,
+    PermissaoController,
 };
 use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('admin')->group(function () {
+
+         /***
+     * Route Permissoes x perfis
+    */
+    Route::get('perfis/{id}/permissoes', [PermissaoPerfilController::class, 'permissoes'])->name('perfis.permissoes');
 
      /***
      * Route Permissoes
