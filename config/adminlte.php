@@ -309,7 +309,7 @@ return [
         [
             'text' => 'Planos',
             'url'  => 'admin/planos',
-            'icon' => 'fa-solid fa-rocket'
+            'icon' => '	fas fa-coffee'
         ],
 
         [
@@ -321,7 +321,7 @@ return [
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissoes',
-            'icon' => 'fas fa-fw fa-user',
+            'icon' => 'fas fa-lock-open',
         ],
         // [
         //     'text'        => 'pages',

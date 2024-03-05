@@ -18,7 +18,7 @@
     <h1>
         Planos
 
-        <a class="btn btn-dark" href="{{ route('planos.create') }}"> Add <i class="fa-solid fa-plus"></i></i></a>
+        <a class="btn btn-dark" href="{{ route('planos.create') }}"> Novo Plano   <i class="fas fa-plus"></i></a>
 
     </h1>
 
@@ -32,7 +32,7 @@
                 @csrf
                 <input type="text" name="filtro" class="form-control" placeholder="Nome"
                     value="{{ $filtros['filtro'] ?? '' }}">
-                <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
             </form>
         </div>
         <div class="card-body">
@@ -53,9 +53,9 @@
                             <td>R$ {{ number_format($plano->preco, 2, ',', '.') }}</td>
                             <td style="width: 350px">
 
-                                <a class="btn btn-dark" href="{{ route('detalhes.index', $plano->url) }}"><i class="fa-solid fa-eye"> Detalhes</i></a>
-                                <a class="btn btn-primary" href="{{ route('planos.show', $plano->url) }}"><i class="fa-solid fa-eye"></i></a>
-                                <a class="btn btn-warning" href="{{ route('planos.edit', $plano->url) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-dark" href="{{ route('planos.show', $plano->url) }}"><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-warning" href="{{ route('planos.edit', $plano->url) }}"><i class="fas fa-pencil-alt"></i></a>
+                                <a class="btn btn-info" href="{{ route('detalhes.index', $plano->url) }}"><i class="fas fa-sticky-note"></i></a>
 
                             </td>
 

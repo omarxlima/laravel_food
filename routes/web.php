@@ -18,6 +18,8 @@ Route::prefix('admin')->group(function () {
          /***
      * Route Permissoes x perfis
     */
+    Route::post('perfis/{id}/permissoes', [PermissaoPerfilController::class, 'permissoes'])->name('perfis.permissoes.store');
+    Route::get('perfis/{id}/permissoes', [PermissaoPerfilController::class, 'permissoes'])->name('perfis.permissoes');
     Route::get('perfis/{id}/permissoes', [PermissaoPerfilController::class, 'permissoes'])->name('perfis.permissoes');
 
      /***

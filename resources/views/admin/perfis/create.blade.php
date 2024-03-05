@@ -3,7 +3,7 @@
 @section('title', 'Perfil')
 
 @section('content_header')
-    <h1>Cadastrar Plano</h1>
+    <h1>Cadastrar Perfil</h1>
 
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
@@ -20,10 +20,10 @@
 
 
         <div class="card-body">
-            <form action=" {{ route('perfis.store') }} " method="POST">
+            <form action=" {{ route('permissoes.store') }} " method="POST">
                 @csrf
 
-                @include('admin.perfis._partials.form')
+                @include('admin.permissoes._partials.form')
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-dark">Cadastrar</button>

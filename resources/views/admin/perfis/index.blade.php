@@ -16,9 +16,9 @@
 
     </ol> --}}
     <h1>
-        Permissões do Perfil
+       Perfis
 
-        <a class="btn btn-dark" href="{{ route('perfis.create') }}"> Add Nova Permissão<i class="fa-solid fa-plus"></i></i></a>
+        <a class="btn btn-dark" href="{{ route('perfis.create') }}"> Add Novo Perfil  <i class="fas fa-user-plus"></i></a>
 
     </h1>
 
@@ -32,7 +32,7 @@
                 @csrf
                 <input type="text" name="filtro" class="form-control" placeholder="Nome"
                     value="{{ $filtros['filtro'] ?? '' }}">
-                <button type="submit" class="btn btn-dark"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="submit" class="btn btn-dark"><i class="fas fa-search"></i></button>
             </form>
         </div>
         <div class="card-body">
@@ -55,9 +55,9 @@
                             <td style="width: 350px">
 
                                 {{-- <a class="btn btn-dark" href="{{ route('detalhes.index', $perfil->id) }}"><i class="fa-solid fa-eye"> Detalhes</i></a> --}}
-                                <a class="btn btn-warning" href="{{ route('perfis.edit', $perfil->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a class="btn btn-warning" href="{{ route('perfis.show', $perfil->id) }}">view</i></a>
-                                <a class="btn btn-warning" href="{{ route('perfis.permissoes', $perfil->id) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a class="btn btn-dark" href="{{ route('perfis.show', $perfil->id) }}"><i class="fas fa-eye"></i></a>
+                                <a class="btn btn-warning" href="{{ route('perfis.edit', $perfil->id) }}"><i class="fas fa-pencil-alt"></i></a>
+                                <a class="btn btn-info" href="{{ route('perfis.permissoes', $perfil->id) }}"><i class="fas fa-sticky-note"></i></a>
 
 
                             </td>
